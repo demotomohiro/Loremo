@@ -45,7 +45,7 @@ Only key mappings made by loremo commands/functions affect local/remote mode.
 If you want to use remote neovim with same key mappings as local neovim, add same mappings with *map command or install loremo.vim and copy your local configuration file to remote machine.
 
 ## Commands
-LoremoSetToggleModeKey {KeySeq} {autoChangeMode}
+### LoremoSetToggleModeKey {KeySeq} {autoChangeMode}
 Set the key sequence {KeySeq} to Toggle local/remote mode.
 If {autoChangeMode} == 1, automatically change to insert mode when mode is toggled from local to remote.
 Following example assign Alt-. key to toggle mode.
@@ -53,7 +53,7 @@ Following example assign Alt-. key to toggle mode.
 LoremoSetToggleModeKey <M-.> 1
 ```
 
-LoremoTnoremap {lhs} {rhs}
+### LoremoTnoremap {lhs} {rhs}
 Map the key sequence {lhs} to {rhs} like tnoremap command, but it is affected by local/remote mode.
 This command prepend `<C-\\><C-n>` to {rhs} in local mode.
 Following example assign Alt-h key to Ctrl-w h key sequece which move to left window.
@@ -61,7 +61,7 @@ Following example assign Alt-h key to Ctrl-w h key sequece which move to left wi
 LoremoTnoremap <A-h> <C-w>h
 ```
 
-LoremoGnoremap {modes} {lhs} {rhs}
+### LoremoGnoremap {modes} {lhs} {rhs}
 Map the key sequence {lhs} to {rhs} for each modes specified by {modes}.
 Each charactor in {modes} specify mode.
 i = input
