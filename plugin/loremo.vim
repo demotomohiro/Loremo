@@ -1,4 +1,4 @@
-"NeoVim global plugin for using NeoVim on terminal inside NeoVim
+﻿"NeoVim global plugin for using NeoVim on terminal inside NeoVim
 "Maintainer: Tomohiro
 
 "w:LoremoKeyBindMode = 1 -> local mode
