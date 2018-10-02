@@ -11,9 +11,9 @@ NVIM REFERENCE MANUAL tells following mapping:
 ```viml
 :tnoremap <A-h> <C-\><C-n><C-w>h
 ```
-(Map Alt-h key to move to left window in terminal mode)
+(Map Alt-h key to move cursor to left window in terminal mode)
 It works in local neovim.
-But on remote neovim(neovim inside neovim), that key mapping doesn't work.
+But on the neovim running on the remote machine(neovim inside neovim), that key mapping doesn't work.
 Because all mapped keys are consumed by local neovim and not sent to a remote neovim.
 So if you have key mappings in terminal mode, using neovim inside neovim is awful.
 
@@ -23,18 +23,32 @@ sshfs command can mount a directory on the remote host to local machine and you 
 But I wanted to have 2 or more terminal windows/tabs and use them inside neovim on remote host in the same way on local machine.
 
 ## How to install
+### If you are using Dein.vim plugin manager
+Add following code between `dein#begin()` and `dein#end()` in your vimrc file.
+```viml
+call dein#add('demotomohiro/Loremo')
+```
+
+Then, add following code after `dein#end()`
+```viml
+runtime plugin/loremo.vim
+```
+
+### If you don't use plugin manager
 Loremo is a global plugin.
 Copy loremo.vim to ~/.local/share/nvim/site/plugin
 ```console
 $ mkdir -p ~/.local/share/nvim/site/plugin
 $ cp loremo.vim ~/.local/share/nvim/site/plugin
 ```
+Load loremo.vim in your vimrc:
+```viml
+source ~/.local/share/nvim/site/plugin/loremo.vim
+```
 
 ## How to use
 Add following lines to your config file.
-```console
-"Load loremo.vim
-source ~/.local/share/nvim/site/plugin/loremo.vim
+```viml
 "Assign Alt-. key to change local/remote mode.
 LoremoSetToggleModeKey <M-.> 1
 "Add key mappings using LoremoGnoremap/LoremoTnoremap command or loremo#GKeyBind function.
@@ -42,7 +56,7 @@ LoremoGnoremap int <A-h> <C-w>h
 ```
 
 Only key mappings made by loremo commands/functions affect local/remote mode.
-If you want to use remote neovim with same key mappings as local neovim, add same mappings with *map command or install loremo.vim and copy your local configuration file to remote machine.
+If you want to use remote neovim with same key mappings as local neovim, add same mappings with map command or install loremo.vim and copy your local configuration file to remote machine.
 
 ## Commands
 ### LoremoSetToggleModeKey {KeySeq} {autoChangeMode}
