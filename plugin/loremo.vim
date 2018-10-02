@@ -41,6 +41,9 @@ function! loremo#GKeyBind(modes, k, v) abort
         if m == 't'
             call loremo#TKeyBind(a:k, a:v)
             continue
+        elseif m == 'T'
+            call loremo#TKeyBind(a:k, a:v.'i')
+            continue
         elseif m == 'i'
             let cmd = '<ESC>'.a:v
         else

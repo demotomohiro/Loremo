@@ -56,7 +56,7 @@ LoremoSetToggleModeKey <M-.> 1
 ### LoremoTnoremap {lhs} {rhs}
 Map the key sequence {lhs} to {rhs} like tnoremap command, but it is affected by local/remote mode.
 This command prepend `<C-\\><C-n>` to {rhs} in local mode.
-Following example assign Alt-h key to Ctrl-w h key sequece which move to left window.
+Following example assign Alt-h key to Ctrl-w h key sequece which move cursor to left window.
 ```viml
 LoremoTnoremap <A-h> <C-w>h
 ```
@@ -64,10 +64,11 @@ LoremoTnoremap <A-h> <C-w>h
 ### LoremoGnoremap {modes} {lhs} {rhs}
 Map the key sequence {lhs} to {rhs} for each modes specified by {modes}.
 Each charactor in {modes} specify mode.
-i = input
-n = normal
-t = terminal
-Following example assign Alt-h key to Ctrl-w h key sequece which move to left window and it works insert, normal and terminal mode.
+i = Insert mode
+n = Normal mode
+t = Terminal Mode(change mode to normal mode)
+T = Terminal Mode(keep staying terminal mode)
+Following example assign Alt-h key to Ctrl-w h key sequece which move cursor to left window and it works insert, normal and terminal mode.
 ```viml
 LoremoGnoremap int <A-h> <C-w>h
 ```
